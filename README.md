@@ -3,21 +3,18 @@
 </h1>
 
 <p align="center">
- <img src="https://img.shields.io/static/v1?label=Youtube&message=@giulianabezerra&color=8257E5&labelColor=000000" alt="@giulianabezerra" />
- <img src="https://img.shields.io/static/v1?label=Tipo&message=Desafio&color=8257E5&labelColor=000000" alt="Desafio" />
+ <img src="https://img.shields.io/static/v1?label=Tipo&message=Desafio&color=1259E5&labelColor=000000" alt="Desafio" />
 </p>
 
-API para gerenciar tarefas (CRUD) que faz parte [desse desafio](https://github.com/simplify-liferay/desafio-junior-backend-simplify) para pessoas desenvolvedoras backend júnior, que se candidatam para a Simplify.
-
-O projeto foi elaborado [nesse vídeo](https://youtu.be/IjProDV001o).
+API para gerenciar tarefas (CRUD) que faz parte [desse desafio](https://github.com/simplify-liferay/desafio-junior-backend-simplify) para desenvolvedores backend júnior, que se candidatam para a Simplify.
 
 ## Tecnologias
- 
+
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
 - [SpringDoc OpenAPI 3](https://springdoc.org/v2/#spring-webflux-support)
-- [Mysql](https://dev.mysql.com/downloads/)
+- [Sql Server](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16#download-ssms)
 
 ## Práticas adotadas
 
@@ -39,21 +36,19 @@ $ ./mvnw clean package
 ```
 $ java -jar target/todolist-0.0.1-SNAPSHOT.jar
 ```
-
-A API poderá ser acessada em [localhost:8080](http://localhost:8080).
 O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ## API Endpoints
 
 Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta [httpie](https://httpie.io):
 
-- Criar Tarefa 
+- Criar Tarefa
 ```
-$ http POST :8080/todos nome="Todo 1" descricao="Desc Todo 1" prioridade=1
+$ http POST :8080/todo nome="Todo 1" descricao="Desc Todo 1" prioridade=1
 
 [
   {
-    "descricao": "Desc Todo 1",
+    "descricao": "Desc 1",
     "id": 1,
     "nome": "Todo 1",
     "prioridade": 1,
@@ -64,11 +59,11 @@ $ http POST :8080/todos nome="Todo 1" descricao="Desc Todo 1" prioridade=1
 
 - Listar Tarefas
 ```
-$ http GET :8080/todos
+$ http GET :8080/todo
 
 [
   {
-    "descricao": "Desc Todo 1",
+    "descricao": "Desc 1",
     "id": 1,
     "nome": "Todo 1",
     "prioridade": 1,
@@ -79,11 +74,11 @@ $ http GET :8080/todos
 
 - Atualizar Tarefa
 ```
-$ http PUT :8080/todos/1 nome="Todo 1 Up" descricao="Desc Todo 1 Up" prioridade=2
+$ http PUT :8080/todo id="1" nome="Todo 1 Up" descricao="Desc Todo 1 Up" prioridade=2
 
 [
   {
-    "descricao": "Desc Todo 1 Up",
+    "descricao": "Desc 1 Up",
     "id": 1,
     "nome": "Todo 1 Up",
     "prioridade": 2,
@@ -94,7 +89,7 @@ $ http PUT :8080/todos/1 nome="Todo 1 Up" descricao="Desc Todo 1 Up" prioridade=
 
 - Remover Tarefa
 ```
-http DELETE :8080/todos/1
+http DELETE :8080/todo/1
 
 [ ]
 ```

@@ -1,0 +1,11 @@
+POST:
+http POST :8080/todo nome="Todo 1" descricao="Desc Todo 1" prioridade=1
+
+PUT:
+http PUT :8080/todo id="1" nome="Todo 1 Up" descricao="Desc Todo 1 Up" prioridade=2
+
+GET:
+http GET :8080/todo
+
+DELETE:
+http DELETE :8080/todo/1
